@@ -31,7 +31,37 @@ public:
         //
         // 6. 否則刪除 A，對剩下的晶片重複測試
 
-        return -1; // 請修改
+        while (true) {
+            int n = chips.size();
+
+            if (n == 1) {
+                return chips[0];
+            }
+
+            int A = chips[0];
+            int V = 0;
+
+            for (int i = 1; i < n; i++) {
+                int B = chips[i];
+
+                if (report[A][B] && report[B][A]) {
+                    V++;
+                }
+            }
+
+            // ✅ 修正這裡
+            if (V >= (n - 1) / 2) {
+                return A;
+            } else {
+                chips.erase(chips.begin());
+            }
+
+            if (chips.empty()) {
+                return -1;
+            }
+        }
+
+        return -1;
     }
 };
 
