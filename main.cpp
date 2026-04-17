@@ -49,7 +49,6 @@ public:
                 }
             }
 
-            // ✅ 修正這裡
             if (V >= (n - 1) / 2) {
                 return A;
             } else {
